@@ -16,7 +16,7 @@ app.use(cors());
 
 //Database connection
 const connectString =
-  "mongodb+srv://admin:admin@perfumcluster.3ywnh.mongodb.net/perfumProject?retryWrites=true&w=majority&appName=perfumCluster";
+  `mongodb+srv://${EVN.DB_USER}:${EVN.DB_PASSWORD}@${EVN.DB_CLUSTER}/${EVN.DB_NAME}?retryWrites=true&w=majority&appName=perfumCluster`;
 
 mongoose.connect(connectString);
 
