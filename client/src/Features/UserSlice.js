@@ -20,7 +20,7 @@ export const registerUser = createAsyncThunk(
   async (userData) => {
     try {
       //sends a POST request to the server along the request body object
-      const response = await axios.post(`~{ENV.SERVER_URL}/registerUser/${userData.email}`, {
+      const response = await axios.post(`{ENV.SERVER_URL}/registerUser/${userData.email}`, {
         name: userData.name,
         email: userData.email,
         password: userData.password,
@@ -36,7 +36,7 @@ export const registerUser = createAsyncThunk(
 
 export const login = createAsyncThunk("users/login", async (userData) => {
   try {
-    const response = await axios.post(`~{ENV.SERVER_URL}/login/${userData.email}`, {
+    const response = await axios.post(`{ENV.SERVER_URL}/login/${userData.email}`, {
       email: userData.email,
       password: userData.password,
     });
@@ -61,7 +61,7 @@ export const logout = createAsyncThunk("/users/logout", async () => {
 
 // Define an async thunk to update the user profile in the Redux store
 export const updateUserProfile = createAsyncThunk(
-  `~{ENV.SERVER_URL}/updateUserProfile/${userData.email}`, // Action type string for Redux
+  `{ENV.SERVER_URL}/updateUserProfile/${userData.email}`, // Action type string for Redux
   async (userData) => {
     try {
       // Log the user data being sent for debugging purposes
@@ -69,7 +69,7 @@ export const updateUserProfile = createAsyncThunk(
 
       // Send a PUT request to the server to update the user profile
       const response = await axios.put(
-        `http://localhost:3001/updateUserProfile/${userData.email}`, // API endpoint for updating user profile
+        `{ENV.SERVER_URL}/updateUserProfile/${userData.email}`, // API endpoint for updating user profile
         {
           // Request payload with user data to be updated
           email: userData.email,
